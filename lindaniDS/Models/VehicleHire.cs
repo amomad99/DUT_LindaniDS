@@ -12,7 +12,6 @@ namespace lindaniDS.Models
         [Key]
         public int vehicleID { get; set; }
 
-
         [ForeignKey("VehicleModel")]
         [Display(Name = "Car Model")]
         public int modelID { get; set; }
@@ -41,10 +40,24 @@ namespace lindaniDS.Models
 
         [Required]
         [Display(Name = "Condition of the Car")]
-        public string condition { get; set; }
+        public bool condition { get; set; }
 
         [Required]
-        [Display(Name = "Is This Car Available?")]
+        [Display(Name = "Is This Car Hired?")]
         public bool availability { get; set; }
+
+
+        public bool car()
+        {
+            if (condition == true)
+            {
+                availability = false;
+            }
+            else
+            {
+                availability = true;
+            }
+            return availability;
+        }
     }
 }

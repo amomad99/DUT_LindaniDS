@@ -18,7 +18,11 @@ namespace lindaniDS.Controllers
         // GET: VehicleModels
         public async Task<ActionResult> Index()
         {
-            return View(await db.VehicleModels.ToListAsync());
+            var data = await db.VehicleModels.ToListAsync();
+            var tot = db.VehicleModels.Count();
+            ViewBag.Message = tot;
+            ViewData["msg"] = 45678;
+           return View(data);
         }
 
         // GET: VehicleModels/Details/5

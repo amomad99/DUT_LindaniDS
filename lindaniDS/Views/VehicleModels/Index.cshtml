@@ -6,8 +6,14 @@
 }
 
 <h2>Index</h2>
-
+@{ 
+    var data = ViewBag.Message;
+    var msg = ViewData["msg"];
+}
 <p>
+   data @data data<br />
+    @msg
+
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">

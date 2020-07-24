@@ -19,6 +19,12 @@ namespace lindaniDS.Controllers
         public async Task<ActionResult> Index()
         {
             var vehicleHires = db.VehicleHires.Include(v => v.VehicleModel);
+            ViewBag.hired = db.VehicleHires.Where(s => s.availability).Count();
+            ViewBag.dCar = db.VehicleHires.Where(a => a.condition).Count();
+            ViewBag.totCar = db.VehicleHires.Count();
+          //  ViewBag.vail = 
+
+
             return View(await vehicleHires.ToListAsync());
         }
 

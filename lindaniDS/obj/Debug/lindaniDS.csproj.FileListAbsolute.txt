@@ -1,4 +1,3 @@
-C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.csprojAssemblyReference.cache
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.csproj.CoreCompileInputs.cache
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\lindaniDS.dll.config
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\lindaniDS.dll
@@ -62,3 +61,7 @@ C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Buff
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Memory.dll
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.InitialCreate.resources
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.csproj.GenerateResource.cache
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.InitialCreate1.resources
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.VehicleHire.resources

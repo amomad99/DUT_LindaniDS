@@ -133,6 +133,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007222010257_InitialCreate.cs" />
+    <Compile Include="Migrations\202007222010257_InitialCreate.designer.cs">
+      <DependentUpon>202007222010257_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007241330553_InitialCreate1.cs" />
+    <Compile Include="Migrations\202007241330553_InitialCreate1.designer.cs">
+      <DependentUpon>202007241330553_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007241438463_VehicleHire.cs" />
+    <Compile Include="Migrations\202007241438463_VehicleHire.designer.cs">
+      <DependentUpon>202007241438463_VehicleHire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookingPackages.cs" />
     <Compile Include="Models\LindaniContext.cs" />
     <Compile Include="Models\VehicleHire.cs" />
@@ -308,6 +321,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007222010257_InitialCreate.resx">
+      <DependentUpon>202007222010257_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007241330553_InitialCreate1.resx">
+      <DependentUpon>202007241330553_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007241438463_VehicleHire.resx">
+      <DependentUpon>202007241438463_VehicleHire.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
