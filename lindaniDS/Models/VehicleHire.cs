@@ -19,9 +19,9 @@ namespace lindaniDS.Models
         public virtual VehicleModel VehicleModel { get; set; }
 
         [Required]
-        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [StringLength(100, ErrorMessage = "Please provide with valid Image!")]
+        [Display(Name = "Car Photo")]
+        public string Email { get; set; } // I used this parameter to store vehicle photo to database.
 
         [Required]
         [Display(Name = "Car Color")]

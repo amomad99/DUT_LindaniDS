@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using lindaniDS.Models;
+using System.IO;
+
 
 namespace lindaniDS.Controllers
 {
@@ -19,6 +21,13 @@ namespace lindaniDS.Controllers
         public async Task<ActionResult> Index()
         {
             var vehicleHires = db.VehicleHires.Include(v => v.VehicleModel);
+<<<<<<< Updated upstream
+=======
+            ViewBag.hired = db.VehicleHires.Where(s => s.availability).Count();
+            ViewBag.dCar = db.VehicleHires.Where(a => a.condition).Count();
+            ViewBag.totCar = db.VehicleHires.Count();
+
+>>>>>>> Stashed changes
             return View(await vehicleHires.ToListAsync());
         }
 
@@ -49,14 +58,29 @@ namespace lindaniDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "vehicleID,modelID,Email,color,regNo,noPlate,cost,condition,availability")] VehicleHire vehicleHire)
+        public async Task<ActionResult> Create([Bind(Include = "vehicleID,modelID,Email,color,regNo,noPlate,cost,condition,availability")] VehicleHire vehicleHire, HttpPostedFileBase email)
         {
             if (ModelState.IsValid)
             {
+                if(email != null && email.ContentLength > 0)
+                {
+                    string fileName = email.FileName;
+                    string physicalPath = Path.Combine(Server.MapPath("~/uploads/"), email.FileName);
+                    email.SaveAs(physicalPath);
+
+                    var fileSavePath = Path.Combine(HttpContext.Server.MapPath("~/uploads/"), email.FileName);
+                    // Save the uploaded file to "UploadedFiles" folder  
+                    email.SaveAs(fileSavePath);
+                   
+                    // email.SaveAs(HttpContext.Server.MapPath("~/App_Data/uploads/"+email) + email.FileName);
+                    vehicleHire.Email = fileName;
+                    //db.VehicleHires.Add(vehicleHire);
+                }               
+
                 db.VehicleHires.Add(vehicleHire);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
-            }
+            }            
 
             ViewBag.modelID = new SelectList(db.VehicleModels, "modelID", "vehicleName", vehicleHire.modelID);
             return View(vehicleHire);

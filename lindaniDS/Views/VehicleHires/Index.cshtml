@@ -26,7 +26,7 @@
 
 <hr />
 
-@Html.ActionLink("Add New Vehicle", "Create", new { @class = "btn btn-sm btn-primary text-success" })
+@Html.ActionLink(" Add New Vehicle", "Create", new { id = "vehicleID" }, new { @class = "btn btn-sm btn-primary text-primay fa fa-plus text-light" })
 @*<i class="fa fa-apple"></i>*@
 
 <div class="row px-3 mt-0 pt-2">
@@ -136,6 +136,7 @@
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawChart);
 
+<<<<<<< Updated upstream
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Year', 'Sales', 'Expenses', 'Profit'],
@@ -143,17 +144,32 @@
             ['2015', 1170, 460, 250],
             ['2016', 660, 1120, 300],
             ['2017', 1030, 540, 350]
+=======
+    var totCar = @totCar;
+    var dCar = @dCar;
+    var hired = @hired;
+    var avail = @avail;
+    //alert("tot = " + totCar + " -> damage = " + dCar + " -> hired = " + hired + " -> avail = " + 1 + 2);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Vehicle', 'LDS Vehicles'],
+            ['Total', totCar],
+            ['Damaged', dCar],
+            ['Hired', hired],
+            ['Available', avail]
+>>>>>>> Stashed changes
         ]);
 
         var options = {
             chart: {
-                title: 'Company Performance',
-                subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                title: 'Companies Vehicle Analylisis',
+                subtitle: 'LDS Vehicle data, Total Vehivles, Damaged, Hired and Available Vehicles',
             },
-            bars: 'vertical',
+            bars: 'vertical Data',
             vAxis: { format: 'decimal' },
             height: 400,
-            colors: ['#1b9e77', '#d95f02', '#7570b3']
+            colors: ['#4fb08f', '#000000']
         };
 
         var chart = new google.charts.Bar(document.getElementById('chart_div'));

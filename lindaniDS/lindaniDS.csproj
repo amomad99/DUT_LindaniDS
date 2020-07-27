@@ -133,6 +133,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Migrations\202007242235169_VehicleHire.cs" />
+    <Compile Include="Migrations\202007242235169_VehicleHire.designer.cs">
+      <DependentUpon>202007242235169_VehicleHire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Models\BookingPackages.cs" />
     <Compile Include="Models\LindaniContext.cs" />
     <Compile Include="Models\VehicleHire.cs" />
@@ -299,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -309,6 +318,14 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+<<<<<<< Updated upstream
+=======
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202007242235169_VehicleHire.resx">
+      <DependentUpon>202007242235169_VehicleHire.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+>>>>>>> Stashed changes
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
