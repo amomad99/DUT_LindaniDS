@@ -63,5 +63,5 @@ C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Nume
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.InitialCreate.resources
 C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.csproj.GenerateResource.cache
-C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.InitialCreate1.resources
-C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.VehicleHire.resources
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.Migrations.model.resources
+C:\Users\ubuntu\Documents\My Projects\lindaniDS\lindaniDS\obj\Debug\lindaniDS.csprojAssemblyReference.cache

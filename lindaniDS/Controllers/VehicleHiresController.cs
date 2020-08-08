@@ -18,14 +18,21 @@ namespace lindaniDS.Controllers
         // GET: VehicleHires
         public async Task<ActionResult> Index()
         {
-            var vehicleHires = db.VehicleHires.Include(v => v.VehicleModel);
-            ViewBag.hired = db.VehicleHires.Where(s => s.availability).Count();
-            ViewBag.dCar = db.VehicleHires.Where(a => a.condition).Count();
-            ViewBag.totCar = db.VehicleHires.Count();
-          //  ViewBag.vail = 
 
+            if (Session["Email"] == null)
+            {
+                return RedirectToAction("Home", "Home");
+            }
+            else
+            {
+                var vehicleHires = db.VehicleHires.Include(v => v.VehicleModel);
+                ViewBag.hired = db.VehicleHires.Where(s => s.availability).Count();
+                ViewBag.dCar = db.VehicleHires.Where(a => a.condition).Count();
+                ViewBag.totCar = db.VehicleHires.Count();
 
-            return View(await vehicleHires.ToListAsync());
+                return View(await vehicleHires.ToListAsync());
+            }
+            
         }
 
         // GET: VehicleHires/Details/5
@@ -68,7 +75,6 @@ namespace lindaniDS.Controllers
             return View(vehicleHire);
         }
 
-        // GET: VehicleHires/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)

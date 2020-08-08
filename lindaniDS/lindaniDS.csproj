@@ -126,8 +126,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AddressesController.cs" />
     <Compile Include="Controllers\BookingPackagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\VehicleHiresController.cs" />
     <Compile Include="Controllers\VehicleModelsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,17 +139,17 @@
     <Compile Include="Migrations\202007222010257_InitialCreate.designer.cs">
       <DependentUpon>202007222010257_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007241330553_InitialCreate1.cs" />
-    <Compile Include="Migrations\202007241330553_InitialCreate1.designer.cs">
-      <DependentUpon>202007241330553_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007241438463_VehicleHire.cs" />
-    <Compile Include="Migrations\202007241438463_VehicleHire.designer.cs">
-      <DependentUpon>202007241438463_VehicleHire.cs</DependentUpon>
+    <Compile Include="Migrations\202007271230453_model.cs" />
+    <Compile Include="Migrations\202007271230453_model.designer.cs">
+      <DependentUpon>202007271230453_model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\BookingPackages.cs" />
+    <Compile Include="Models\Hire.cs" />
     <Compile Include="Models\LindaniContext.cs" />
+    <Compile Include="Models\payment.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\VehicleHire.cs" />
     <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,6 +311,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Logout.cshtml" />
+    <Content Include="Views\Addresses\Create.cshtml" />
+    <Content Include="Views\Addresses\Delete.cshtml" />
+    <Content Include="Views\Addresses\Details.cshtml" />
+    <Content Include="Views\Addresses\Edit.cshtml" />
+    <Content Include="Views\Addresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,11 +337,8 @@
     <EmbeddedResource Include="Migrations\202007222010257_InitialCreate.resx">
       <DependentUpon>202007222010257_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007241330553_InitialCreate1.resx">
-      <DependentUpon>202007241330553_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007241438463_VehicleHire.resx">
-      <DependentUpon>202007241438463_VehicleHire.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007271230453_model.resx">
+      <DependentUpon>202007271230453_model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -20,9 +20,10 @@ namespace lindaniDS.Models
             public DbSet<VehicleHire> VehicleHires { get; set; }
             public DbSet<VehicleModel> VehicleModels { get; set; }
             public DbSet<BookingPackages> BookingPackages { get; set; }
+    
 
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {
                 base.OnModelCreating(modelBuilder);
             }
@@ -31,7 +32,11 @@ namespace lindaniDS.Models
             {
                 return new LindaniContext();
             }
-        }
+
+        public System.Data.Entity.DbSet<lindaniDS.Models.User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<lindaniDS.Models.Address> Addresses { get; set; }
+    }
 
 
     

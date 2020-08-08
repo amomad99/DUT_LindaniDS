@@ -1,0 +1,47 @@
+﻿@model lindaniDS.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-5 mx-0">
+    <div class="col-md-12 mx-0 text-center">
+        @if (ViewBag.err == null && ViewBag.tryOnce == "yes")
+        {
+            <h4 class="text-danger">The E-mail or Password are incorrect, Please try again! or  @Html.ActionLink("Register new Account ", "Register")</h4>
+        }
+    </div>
+</div> <hr />
+
+       <div class="row text-center mt-5" >
+           <div class="col-md-4 ">
+
+           </div>
+
+           <div class="col-md-4 border pl-5 text-center">
+
+               @using (Html.BeginForm())
+               {
+                   @Html.AntiForgeryToken()
+
+                   <div class="md-form">
+                       <i class="fas fa-envelope prefix"></i>
+                       <input type="email" id="Email" name="Email" class="form-control">
+                       <label for="Email">E-mail address</label>
+                   </div>
+
+                   <div class="md-form">
+                       <i class="fas fa-user prefix"></i>
+                       <input type="password" id="Password" name="Password" class="form-control">
+                       <label for="Password">E-mail address</label>
+                   </div>
+
+                   <input type="submit" value="Create" class="btn btn-primary rounded btn-sm" />
+
+
+               }
+
+           </div>
+       </div>
+
