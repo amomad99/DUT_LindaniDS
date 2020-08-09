@@ -35,7 +35,17 @@ namespace lindaniDS.Models
 
         public System.Data.Entity.DbSet<lindaniDS.Models.User> Users { get; set; }
 
-        public System.Data.Entity.DbSet<lindaniDS.Models.Address> Addresses { get; set; }
+        public System.Data.Entity.DbSet<lindaniDS.Models.Address> Addresses { get; set; }     
+
+        public System.Data.Entity.DbSet<lindaniDS.ViewModels.HireViewModels> HireViewModels { get; set; }
+
+       // public System.Data.Entity.DbSet<lindaniDS.Models.Payment> Payments { get; set; }
+
+        public System.Data.Entity.DbSet<lindaniDS.Models.Learners> Learners { get; set; }
+
+        public System.Data.Entity.DbSet<lindaniDS.Models.Licence> Licences { get; set; }
+
+        public System.Data.Entity.DbSet<lindaniDS.Models.Payment> Payments { get; set; }
     }
 
 

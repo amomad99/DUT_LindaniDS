@@ -82,11 +82,11 @@ body,
 
                     </li>
                     <li class="nav-item ">
-                        @Html.ActionLink("Car Model", "Index", "VehicleModels", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Booking", "Index", "BookingPackages", new { area = "" }, new { @class = "nav-link" })
 
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Car Hire", "Index", "VehicleHires", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Car Hire", "Hire", "VehicleHires", new { area = "" }, new { @class = "nav-link" })
                     </li>
 
                     @if (Session["Email"] == null)

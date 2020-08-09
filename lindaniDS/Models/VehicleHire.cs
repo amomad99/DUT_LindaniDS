@@ -17,24 +17,24 @@ namespace lindaniDS.Models
         public int modelID { get; set; }
         public virtual VehicleModel VehicleModel { get; set; }
 
-        [Required]
+     
         [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+       
         [Display(Name = "Car Color")]
         public string color { get; set; }
 
-        [Required]
+   
         [Display(Name = "Registration Number")]
         public string regNo { get; set; }
 
-        [Required]
+      
         [Display(Name = "Car Number Plate")]
         public string noPlate { get; set; }
 
-        [Required]
+        
         [Display(Name = "Car Hire Cost")]
         public decimal cost { get; set; }
 
@@ -42,9 +42,22 @@ namespace lindaniDS.Models
         [Display(Name = "Condition of the Car")]
         public bool condition { get; set; }
 
-        [Required]
+     
         [Display(Name = "Is This Car Hired?")]
         public bool availability { get; set; }
+
+     
+        [Display(Name = "Email")]
+        public DateTime? PickDate { get; set; }
+
+       
+        [Display(Name = "Email")]
+        public DateTime? DropDate { get; set; }
+
+        [ForeignKey("Address")]
+        [Display(Name = "Email")]
+        public int AddreessID { get; set; }
+        public ICollection<Address> Address { get; set; }
 
 
         public bool car()

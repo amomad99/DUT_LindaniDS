@@ -9,21 +9,25 @@ namespace lindaniDS.Models
     public class BookingPackages
     {
         [Key]
-        public int packageID { get; set; }
+        public int PackageID { get; set; }
 
-        [Required]
-        [Display(Name = "Package Name")]
-        public string packageName { get; set; }
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
-        [Required]
-        [Display(Name = "Package Cost")]
-        public string cost { get; set; }
+        [Display(Name = "Cost")]
+        public double Cost { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "AvailableFrom")]
+        public DateTime? AvailableFrom { get; set; }       
 
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Package Availability")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
-        public DateTime availabilityDate { get; set; }
+        public DateTime? AvailableTo { get; set; }
 
     }
 }

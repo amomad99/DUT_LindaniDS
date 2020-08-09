@@ -1,0 +1,76 @@
+﻿@model IEnumerable<lindaniDS.Models.VehicleHire>
+
+@{
+    ViewBag.Title = "Hire";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hire</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleModel.vehicleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noPlate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.condition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.availability)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleModel.vehicleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.noPlate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.condition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availability)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.vehicleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.vehicleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.vehicleID })
+        </td>
+    </tr>
+}
+
+</table>

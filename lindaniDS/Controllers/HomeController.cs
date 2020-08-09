@@ -50,7 +50,7 @@ namespace lindaniDS.Controllers
         {
             if(Session["Email"] != null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
             else
             {
@@ -70,8 +70,9 @@ namespace lindaniDS.Controllers
                 //db.Users.Add(User);
                 //db.SaveChanges();
                 Session["Email"] = User.Email;
+                Session["UserID"] = User.UserID;
 
-                return RedirectToAction("Index", "Home"); // , new { Email = User.Email }
+                return RedirectToAction("Index");  // , new { Email = User.Email }
             }
             else
             {

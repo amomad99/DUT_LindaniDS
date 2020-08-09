@@ -57,6 +57,7 @@
             DropTable("dbo.VehicleModels");
             DropTable("dbo.VehicleHires");
             DropTable("dbo.BookingPackages");
+            DropTable("dbo.payments");
         }
     }
 }

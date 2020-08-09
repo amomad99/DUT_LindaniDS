@@ -7,24 +7,44 @@ using System.Web;
 
 namespace lindaniDS.Models
 {
-    public class payment
+    public class Payment
     {
         [Key]
-        public int HireID { get; set; }
-
-        [ForeignKey("VehicleModel")]
-        public int modelID { get; set; }
-        public virtual VehicleModel VehicleModel { get; set; }
-    
-        [ForeignKey("VehicleModel")]
-        public int UserID { get; set; }
-        public virtual VehicleModel User { get; set; }
-
-        public DateTime Date { get; set; }
-     
+        public int PaymentID { get; set; }
         public string PayType { get; set; }
 
-     
+        [ForeignKey("User")]
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
+
+        [ForeignKey("VehicleHire")]
+        public int? vehicleID { get; set; }
+        public virtual VehicleHire VehicleHire { get; set; }
+
+        [ForeignKey("BookingPackages")]
+        public int? PackageID { get; set; }
+        public virtual BookingPackages BookingPackages { get; set; }
+
+        public DateTime? Date { get; set; }
+
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "BankName")]
+        public string BankName { get; set; }
+
+
+        [Display(Name = "BranchCode")]
+        public int BranchCode { get; set; }
+
+        [Display(Name = "CardNumber")]
+        public int CardNumber { get; set; }
+
+
+        [Display(Name = "Expire")]
+        public DateTime Expire { get; set; }
+
+
+        [Display(Name = "CVV")]
+        public int CVV { get; set; }
 
     }
 }

@@ -34,9 +34,35 @@ namespace lindaniDS.Controllers
             }
             
         }
+        ////////
+        public async Task<ActionResult> Hire()        {
+
+                var vehicleHires = db.VehicleHires.Include(v => v.VehicleModel).Include(a => a.Address); 
+                ViewBag.hired = db.VehicleHires.Where(s => s.availability).Count();
+                ViewBag.dCar = db.VehicleHires.Where(a => a.condition).Count();
+                ViewBag.totCar = db.VehicleHires.Count();
+
+                return View(await vehicleHires.ToListAsync());
+            
+
+        }
 
         // GET: VehicleHires/Details/5
         public async Task<ActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            VehicleHire vehicleHire = await db.VehicleHires.FindAsync(id);
+            if (vehicleHire == null)
+            {
+                return HttpNotFound();
+            }
+            return View(vehicleHire);
+        }
+
+        public async Task<ActionResult> ViewCar(int? id)
         {
             if (id == null)
             {
