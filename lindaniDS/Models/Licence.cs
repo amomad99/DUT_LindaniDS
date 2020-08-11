@@ -12,12 +12,41 @@ namespace lindaniDS.Models
         [Key]
         public int LearnerID { get; set; }
 
-        [ForeignKey("User")]
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+        public string Names { get; set; }
+        public string Email { get; set; }
 
-        [ForeignKey("BookingPackages")]
-        public int PackageID { get; set; }
-        public virtual BookingPackages BookingPackages { get; set; }
+        //[ForeignKey("User")]
+        //public int UserID { get; set; }
+        //public virtual User User { get; set; }
+
+        //[ForeignKey("BookingPackages")]
+        //public int PackageID { get; set; }
+        //public virtual BookingPackages BookingPackages { get; set; }
+
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "Email")]
+        public string Province { get; set; }
+
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "Email")]
+        public string City { get; set; }
+
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "Email")]
+        public string Surbub { get; set; }
+
+        [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
+        [Display(Name = "Email")]
+        public string Street { get; set; }
+
+        [Display(Name = "Zip Code")]
+        public int ZipCode { get; set; }
+        public int Phone { get; set; }
+        public int IDNum { get; set; }
+        public string Location { get; set; }
+        public DateTime BookingDate { get; set; }
+        public string Photo { get; set; }
+        public string Picture { get; set; }
+        public int Code { get; set; }
     }
 }

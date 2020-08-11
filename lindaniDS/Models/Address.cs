@@ -21,7 +21,7 @@ namespace lindaniDS.Models
 
         [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
         [Display(Name = "Email")]
-        public string Citi { get; set; }
+        public string City { get; set; }
 
         [StringLength(50, ErrorMessage = "Please provide with valid E-mail!")]
         [Display(Name = "Email")]

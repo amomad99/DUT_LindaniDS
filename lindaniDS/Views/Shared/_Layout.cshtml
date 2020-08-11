@@ -17,7 +17,9 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
-
+    @{ 
+        Session.Timeout = 60;
+    }
 
     <style type="text/css">
     html,
@@ -82,7 +84,7 @@ body,
 
                     </li>
                     <li class="nav-item ">
-                        @Html.ActionLink("Booking", "Index", "BookingPackages", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Booking", "AllBookings", "Home", new { area = "" }, new { @class = "nav-link" })
 
                     </li>
                     <li class="nav-item">
@@ -100,9 +102,11 @@ body,
                     }
                     else
                     {
-                        <li class="nav-item">
-                            @Html.ActionLink("Admin", "Index", "VehicleModels", new { area = "" }, new { @class = "nav-link" })
-                        </li> 
+                       
+                            <li class="nav-item">
+                                @Html.ActionLink("Admin", "Index", "VehicleModels", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+
                         <li class="nav-item">
                             @Html.ActionLink("Log Out", "Logout", "Home", new { area = "" }, new { @class = "nav-link" })
                         </li>
@@ -119,19 +123,19 @@ body,
 
     <div class="container-fluid m-0 p-0 body-content">
         @RenderBody()
-        <hr />
-      
+
+    </div>
             <!-- Footer -->
             <footer class="page-footer d-none position-fixed w-100 sticky-bottom font-small stylish-color-dark pt-4">
                 <!-- Copyright -->
                 <div class="footer-copyright text-center py-3">
                     &copy; @DateTime.Now.Year  Copyright:
-                    <a href="https://effectivewing.com/"> Effectivewing.com</a>
+                    <a href="https://effectivewing.com/"> LindaniDS.com</a>
                 </div>
                 <!-- Copyright -->
 
             </footer>          
-    </div>
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

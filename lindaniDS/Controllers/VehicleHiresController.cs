@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using lindaniDS.Models;
+using System.IO;
+
 
 namespace lindaniDS.Controllers
 {
@@ -88,10 +90,32 @@ namespace lindaniDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "vehicleID,modelID,Email,color,regNo,noPlate,cost,condition,availability")] VehicleHire vehicleHire)
+        public async Task<ActionResult> Create([Bind(Include = "vehicleID,modelID,Email,color,regNo,noPlate,cost,condition,availability,Picture,Photo")] VehicleHire vehicleHire, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                //if (upload != null && upload.ContentLength > 0)
+                //{
+                //    int fileLength = upload.ContentLength;
+                //    Byte[] array = new Byte[fileLength];
+                //    upload.InputStream.Read(array, 0, fileLength);
+                //    vehicleHire.Picture = array;
+                //    vehicleHire.availability = vehicleHire.car();        
+                //    upload.SaveAs(HttpContext.Server.MapPath("~/Images/")
+                //                                              + upload.FileName);
+                //            string name = upload.FileName;
+                //            vehicleHire.Photo = name;  
+                //}
+
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(upload.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/Images"), _FileName);
+                    upload.SaveAs(_path);
+
+                    vehicleHire.Photo = _FileName;
+                }
+
                 db.VehicleHires.Add(vehicleHire);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");

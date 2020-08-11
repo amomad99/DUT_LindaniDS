@@ -26,34 +26,34 @@
         {
             @Html.AntiForgeryToken()
             <div class="md-form">
-                <i class="fas fa-user prefix"></i>
-                <input type="text" id="FirstName" name="FirstName" class="form-control">
+                <i class="fas fa-user-shield prefix"></i>
+                <input type="text" id="FirstName" name="FirstName" class="form-control" required>
                 <label for="FirstName">First Name</label>
             </div>
             <div class="md-form">
-                <i class="fas fa-user prefix"></i>
-                <input type="text" id="LastName" name="LastName" class="form-control">
+                <i class="fas fa-user-shield prefix"></i>
+                <input type="text" id="LastName" name="LastName" class="form-control" required>
                 <label for="LastName">Last Name</label>
             </div>
             <div class="md-form">
-                <i class="fas fa-envelope prefix"></i>
+                <i class="fas fa-address-card prefix"></i>
                 <input type="number" id="IDNumber" name="IDNumber" class="form-control">
                 <label for="IDNumber">ID Number </label>
             </div>
 
             <div class="md-form">
                 <i class="fas fa-envelope prefix"></i>
-                <input type="email" id="Email" name="Email" class="form-control">
+                <input type="email" id="Email" name="Email" class="form-control" required>
                 <label for="Email">E-mail address</label>
             </div>
 
             <div class="md-form">
-                <i class="fas fa-user-shield prefix"></i>
-                <input type="password" id="Password" name="Password" class="form-control">
-                <label for="Password">E-mail address</label>
+                <i class="fas fa-key prefix"></i>
+                <input type="password" id="Password" name="Password" class="form-control" required>
+                <label for="Password">Password</label>
             </div>
 
-            <input type="submit" value="Create" class="btn btn-primary form-control-sm rounded btn-sm" />
+            <input type="submit" value="Register" class="btn btn-primary form-control-sm rounded btn-sm" />
 
 
         }

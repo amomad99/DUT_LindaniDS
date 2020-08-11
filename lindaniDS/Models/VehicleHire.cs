@@ -46,7 +46,10 @@ namespace lindaniDS.Models
         [Display(Name = "Is This Car Hired?")]
         public bool availability { get; set; }
 
-     
+        public byte[] Picture { get; set; }
+
+        public string Photo { get; set; }
+
         [Display(Name = "Email")]
         public DateTime? PickDate { get; set; }
 

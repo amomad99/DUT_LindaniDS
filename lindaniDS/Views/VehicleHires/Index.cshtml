@@ -34,7 +34,7 @@
 @Html.ActionLink("Add New Vehicle", "Create", new { @class = "btn btn-sm btn-primary text-success" })
 @*<i class="fa fa-apple"></i>*@
 
-<div class="row px-3 mt-0 pt-2">
+<div class="row mx-1 mt-0 pt-2 bg-white">
     <div class="col-md-7 mr-5 p-0 border border-dark rounded">
         <div id="chart_div"></div>
     </div>
@@ -45,7 +45,7 @@
     </div>
 </div>
 @*<input type="text" value="@Html.DisplayNameFor(model => model.Email)">*@
-<table class="table mb-3">
+<table class="table mb-3 bg-white">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.VehicleModel.vehicleName)
@@ -63,6 +63,9 @@
             @Html.DisplayNameFor(model => model.noPlate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.cost)
         </th>
         <th>
@@ -76,37 +79,48 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.VehicleModel.vehicleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.regNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.noPlate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.condition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.availability)
-            </td>
-            <td>
-                @Html.ActionLink(" | ", "Edit", new { id = item.vehicleID }, new { @class = "fa fa-pencil text-dark" })
-                @Html.ActionLink(" | ", "Details", new { id = item.vehicleID }, new { @class = "fa fa-eye text-dark" })
-                @Html.ActionLink("`", "Delete", new { id = item.vehicleID }, new { @class = "fa fa-trash text-dark" })
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.VehicleModel.vehicleName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.color)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.regNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.noPlate)
+    </td>
+    <td>
+        @if (item.Picture != null)
+        {
+            var base64 = Convert.ToBase64String(item.Picture);
+            var imgScr = string.Format("data:image/gif;base64,{0}", base64);
+
+            <img src="@imgScr" width="200" height="200" />
+            @*<img src="@Url.Content(item.Picture)" alt="@Model.AlternateText" />*@
+            <br />
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.cost)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.condition)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.availability)
+    </td>
+    <td>
+        @Html.ActionLink(" | ", "Edit", new { id = item.vehicleID }, new { @class = "fa fa-pencil text-dark" })
+        @Html.ActionLink(" | ", "Details", new { id = item.vehicleID }, new { @class = "fa fa-eye text-dark" })
+        @Html.ActionLink("`", "Delete", new { id = item.vehicleID }, new { @class = "fa fa-trash text-dark" })
+    </td>
+</tr>
     }
 
 </table>

@@ -28,6 +28,12 @@ namespace lindaniDS.Controllers
 
             return View();
         }
+        public ActionResult AllBookings()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
 
         public ActionResult Register()
         {
@@ -65,14 +71,24 @@ namespace lindaniDS.Controllers
             var UserLogedIn = db.Users.SingleOrDefault(x => x.Email == User.Email && x.Password == User.Password);
             if (UserLogedIn != null)
             {
+                string email = User.Email;
                 ViewBag.err = "The E-mail or Password are incorrect, Please try again";
                 ViewBag.success = "You are successfully Loged In.";
-                //db.Users.Add(User);
-                //db.SaveChanges();
-                Session["Email"] = User.Email;
+                Session["Email"] = email;
                 Session["UserID"] = User.UserID;
+               
+                if(email.Contains("lindani") || email.Contains("lindaniDS") || email.Contains("lindanids"))
+                {
+                    Session["ad"] = email;
+                    return RedirectToAction("Index", "VehicleHires");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");  // , new { Email = User.Email }
+
+               
             }
             else
             {

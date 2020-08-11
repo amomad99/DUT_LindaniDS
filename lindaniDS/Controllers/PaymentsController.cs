@@ -59,13 +59,47 @@ namespace lindaniDS.Controllers
              return RedirectToAction("Create", "Payments");
 
         }
+        //////////////////////////////////////////
+        public ActionResult VehiclePay(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            VehicleHire vehicleHire =  db.VehicleHires.Find(id);
+            if (vehicleHire == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.modelID = new SelectList(db.VehicleModels, "modelID", "vehicleName", vehicleHire.modelID);
+            return View(vehicleHire);
+        }
+        ////////        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult VehiclePay([Bind(Include = "vehicleID,modelID,Email,color,regNo,noPlate,cost,condition,availability")] VehicleHire vehicleHire)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(vehicleHire).State = EntityState.Modified;
+                 db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            ViewBag.modelID = new SelectList(db.VehicleModels, "modelID", "vehicleName", vehicleHire.modelID);
+            return View(vehicleHire);
+        }
+        /// <summary>
+        /// /////////////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: Payments/Create
         public ActionResult Create(int? id)
         {
             Session.Timeout = 60;
 
 
-            if (Session["Email"] != null && Session["Vehicle"] != null)
+            if (Session["Email"] != null)
             {
                 ViewBag.PackageID = new SelectList(db.BookingPackages, "PackageID", "Name");
                 ViewBag.UserID = new SelectList(db.Users, "UserID", "FirstName");
@@ -85,8 +119,9 @@ namespace lindaniDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PaymentID,PayType,UserID,vehicleID,PackageID,Date,BankName,BranchCode,CardNumber,Expire,CVV")] Payment payment)
+        public ActionResult Create( Payment payment)
         {
+            // [Bind(Include = "PaymentID,PayType,UserID,vehicleID,PackageID,Date,BankName,BranchCode,CardNumber,Expire,CVV")]
             Session.Timeout = 60;
             if (Session["Email"] != null && Session["Vehicle"] != null)
                 {
