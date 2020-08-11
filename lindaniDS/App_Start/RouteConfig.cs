@@ -28,6 +28,11 @@ namespace lindaniDS
                defaults: new { controller = "Licences", action = "create", id = UrlParameter.Optional }
            );
             routes.MapRoute(
+              name: "LicenceDetails",
+              url: "{controller}/{action}/{id}",
+              defaults: new { controller = "Licences", action = "Index", id = UrlParameter.Optional }
+          );
+            routes.MapRoute(
                 name: "Hire",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "VehicleHires", action = "ViewCar", id = UrlParameter.Optional }                

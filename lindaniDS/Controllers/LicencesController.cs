@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using lindaniDS.Models;
+using System.Net.Mail;
 
 namespace lindaniDS.Controllers
 {
@@ -58,7 +59,7 @@ namespace lindaniDS.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "LearnerID,UserID,Province,City,Surbub,Street,ZipCode,Phone,IDNum,Location,BookingDate,Photo,Picture,Code")] Licence licence, HttpPostedFileBase upload)
+        public async Task<ActionResult> Create([Bind(Include = "LearnerID,UserID,Names,Email,Province,City,Surbub,Street,ZipCode,Phone,IDNum,Location,BookingDate,Photo,Picture,Code")] Licence licence, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -67,13 +68,38 @@ namespace lindaniDS.Controllers
                     string _FileName = Path.GetFileName(upload.FileName);
                     string _path = Path.Combine(Server.MapPath("~/Images"), _FileName);
                     upload.SaveAs(_path);
-
                     licence.Picture = _FileName;
+
+                    //SmtpClient client = new SmtpClient("smtp.gmail.com");
+                    ////If you need to authenticate
+                    //client.Credentials = new NetworkCredential("amocodes@gmail.com", "@Dut123456");
+                    //System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                    //MailMessage mm = new MailMessage("amocodes@gmail.com", licence.Email);
+                    //mm.Subject = "Hello Welcome to Lindani Driving School, Your Driving licences was booked successfully";
+                    //mm.Body = "Please save this email safe";
+                    //mm.IsBodyHtml = false;
+
+                    //mailMessage.From = new MailAddress("amocodes@gmail.com", "It's Me");
+                    ////mailMessage.To.Add("madibaamohelang@gmail.com");
+                    ////mailMessage.Subject = "Hello Welcome to Lindani Driving School, Your Driving licences was booked successfully";
+                    ////mailMessage.Body = "Please save this email safe";
+                    ///
+                    //SmtpClient smtp = new SmtpClient();
+                    //smtp.Host = "smtp.gmail.com";
+                    //smtp.Port = 587;
+                    //smtp.EnableSsl = true;
+
+                    //NetworkCredential nc = new NetworkCredential("amocodes@gmail.com", "@Dut123456");
+                    //smtp.UseDefaultCredentials = false;
+                    //smtp.Credentials = nc;
+                   // smtp.Send(mm);
+
+                    db.Licences.Add(licence);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
                 }
-               /// licence.LearnerID = Session[""]
-                db.Licences.Add(licence);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                /// licence.LearnerID = Session[""]
+                return View(licence);
             }
 
            // ViewBag.PackageID = new SelectList(db.BookingPackages, "PackageID", "Name", licence.PackageID);

@@ -15,7 +15,7 @@
     <div class="col-md-6">
         <h2>Hire  @Html.DisplayNameFor(model => model.VehicleModel.vehicleName) Now</h2>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" onclick="hire()">
         @Html.ActionLink("Hire Now", "AddPay", "Payments",new { id = Model.vehicleID }, new { @class = "btn btn-sm btn-primary rounded" })
     </div>
 </div>
@@ -148,3 +148,12 @@
     </div>
 
 </div>
+
+<script>
+
+    function hire() {
+        setTimeout(function () {
+            window.confirm("You must create account first. Click OK to Login or Register");
+        }, 10);
+    }
+</script>

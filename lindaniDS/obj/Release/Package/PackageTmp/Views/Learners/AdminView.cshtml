@@ -5,18 +5,18 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>AdminView</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<div class="row py-4">
+    <div class="col-12 h4 font-weight-bold text-center ">
+        All The Learners Bookings
+    </div>
+</div> <hr />
+<table class="table bg-white rounded">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BookingPackages.Name)
+            @Html.DisplayNameFor(model => model.Names)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.FirstName)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Province)
@@ -54,10 +54,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.BookingPackages.Name)
+            @Html.DisplayFor(modelItem => item.Names)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User.FirstName)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Province)

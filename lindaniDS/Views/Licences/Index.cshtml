@@ -5,10 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
+<div class="row mt-5">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6 text-center">
+        <h2>Your Booking Details</h2>
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Booking", "Create", new { area=""},new {@class = "btn btn-sm btn-info btn-outline-info"})
 </p>
 <table class="table">
     <tr>
@@ -45,9 +56,9 @@
         <th>
             @Html.DisplayNameFor(model => model.BookingDate)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Photo)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Picture)
         </th>
@@ -92,9 +103,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.BookingDate)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Photo)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Picture)
         </td>
